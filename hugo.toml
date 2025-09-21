@@ -1,7 +1,5 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://ahbeeweb.netlify.app/"
 languageCode = "en-us"
 title = "AhbeeWeb"
 theme = "ahbeeweb-theme"
 enableRobotsTXT = true
-
-
