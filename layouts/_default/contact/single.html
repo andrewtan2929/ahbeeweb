@@ -18,7 +18,7 @@
 
         <!-- Contact Form -->
         <div class="contact-form card">
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+            <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                 <input type="hidden" name="form-name" value="contact">
 
                 <div class="form-group">
@@ -38,6 +38,12 @@
 
                 <button type="submit">Send Message</button>
             </form>
+
+            <!-- Success message container -->
+            <div id="form-success" style="display:none; color:green; margin-top:1em;">
+                Thank you! Your message has been sent.
+            </div>
+
         </div>
 
         <!-- Contact Info -->
@@ -65,5 +71,27 @@
     </div>
 
 </section>
+
+    <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent page reload
+
+        const form = e.target;
+        const data = new FormData(form);
+
+        fetch("/", {
+            method: "POST",
+            body: data
+        }).then(function() {
+            // Show success message
+            document.getElementById('form-success').style.display = 'block';
+            // Clear the form
+            form.reset();
+        }).catch(function(error) {
+            alert("Oops! There was a problem submitting your form.");
+            console.error(error);
+        });
+    });
+    </script>
 
 {{ end }}
