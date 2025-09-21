@@ -19,52 +19,48 @@
         <!-- Contact Form -->
         <div class="contact-form card">
             <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="contact">
 
+                <!-- Netlify hidden inputs -->
+                <input type="hidden" name="form-name" value="contact">
+                <p style="display:none;">
+                    <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                </p>
+
+                <!-- Name -->
                 <div class="form-group">
                     <input type="text" id="name" name="name" required placeholder=" ">
                     <label for="name">Name</label>
                 </div>
 
+                <!-- Email -->
                 <div class="form-group">
                     <input type="email" id="email" name="email" required placeholder=" ">
                     <label for="email">Email</label>
                 </div>
 
+                <!-- Message -->
                 <div class="form-group">
                     <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
                     <label for="message">Message</label>
                 </div>
 
                 <button type="submit">Send Message</button>
+
+                <!-- Success message -->
+                <div id="form-success" style="display:none; color:green; margin-top:1em;">
+                    Thank you! Your message has been sent.
+                </div>
+
             </form>
-
-            <!-- Success message container -->
-            <div id="form-success" style="display:none; color:green; margin-top:1em;">
-                Thank you! Your message has been sent.
-            </div>
-
         </div>
 
         <!-- Contact Info -->
         <div class="contact-info card">
             <h2>Contact Information</h2>
             <ul>
-                <li>
-                    <span class="icon">📧</span>
-                    <strong>Email:</strong>
-                    <a href="mailto:contact@ahbeefabrication.com">ahbee2963@gmail.com</a>
-                </li>
-                <li>
-                    <span class="icon">📞</span>
-                    <strong>Phone:</strong>
-                    <a href="tel:+61123456789">+61 403 872 586</a>
-                </li>
-                <li>
-                    <span class="icon">📍</span>
-                    <strong>Address:</strong>
-                    Perth, Western Australia
-                </li>
+                <li><span class="icon">📧</span> <strong>Email:</strong> <a href="mailto:ahbee2963@gmail.com">ahbee2963@gmail.com</a></li>
+                <li><span class="icon">📞</span> <strong>Phone:</strong> <a href="tel:+61403872586">+61 403 872 586</a></li>
+                <li><span class="icon">📍</span> <strong>Address:</strong> Perth, Western Australia</li>
             </ul>
         </div>
 
@@ -72,26 +68,28 @@
 
 </section>
 
-    <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent page reload
+<!-- JavaScript for popup submission -->
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent default page reload
 
-        const form = e.target;
-        const data = new FormData(form);
+    const form = e.target;
+    const data = new FormData(form);
 
-        fetch("/", {
-            method: "POST",
-            body: data
-        }).then(function() {
-            // Show success message
-            document.getElementById('form-success').style.display = 'block';
-            // Clear the form
-            form.reset();
-        }).catch(function(error) {
-            alert("Oops! There was a problem submitting your form.");
-            console.error(error);
-        });
+    // Submit the form to Netlify
+    fetch("/", {
+        method: "POST",
+        body: data
+    }).then(function() {
+        // Show success message
+        document.getElementById('form-success').style.display = 'block';
+        // Clear the form fields
+        form.reset();
+    }).catch(function(error) {
+        alert("Oops! There was a problem submitting your form.");
+        console.error(error);
     });
-    </script>
+});
+</script>
 
 {{ end }}
