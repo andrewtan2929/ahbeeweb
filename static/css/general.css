@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;     /* Prevent horizontal scroll */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: blue;
+}
+
+.navbar .logo {
+    position: absolute;
+    left: 20px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.navbar .menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar .menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 25px; /* updated size */
+}
+
+.navbar .logo img {
+    display: block;
+    max-height: 50px; /* ensures logo fits nicely */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 5px;
+    background-color: blue;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

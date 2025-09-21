@@ -1,0 +1,98 @@
+.page-title {
+    background-color: #90EE90;  /* #FFD700; yellow bar */
+    color: #000000; /* black text */
+    text-align: center; /* center horizontally */
+    padding: 1px 0; /* vertical padding for height */
+    font-size: 1.5em; /* title size */
+    font-weight: bold;
+    width: 100%; /* make sure it spans full width */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* optional: subtle shadow */
+}
+
+.page-subtitle {
+    text-align: center;
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+.subtitle-heading {
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    width: 100%;          /* spans full width of container */
+    max-width: 1200px;    /* optional max width */
+    color: black;
+    text-align: center;
+    margin: 0 auto 10px auto;
+}
+
+
+.subtitle-description {
+    font-family: 'Times New Roman', serif;  /* font for second paragraph */
+    font-size: 1.75rem;
+    color: blue;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+}
+
+/* Three Columns On The Prices */
+.pricing-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 50px; /* left & right gap for the section */
+}
+
+.pricing-container {
+    display: flex;
+    justify-content: space-between; /* even spacing between columns */
+    gap: 50px;                      /* increased gap between columns */
+}
+
+.pricing-card {
+    flex: 1 1 0;                     /* each column takes equal width */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 30px;                   /* increased padding */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* stronger shadow for depth */
+}
+
+.pricing-card h2 {
+    font-size: 2rem;                 /* bigger title font */
+    margin-bottom: 20px;
+}
+
+.pricing-card p {
+    font-size: 1.2rem;               /* larger paragraph text */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.pricing-btn {
+    display: inline-block;
+    padding: 15px 30px;              /* bigger button */
+    font-size: 1.2rem;               /* bigger button text */
+    background-color: #FFD700;
+    color: #222;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.pricing-btn:hover {
+    background-color: #e6c200;
+}
+
+/* Responsive for smaller screens */
+@media screen and (max-width: 900px) {
+    .pricing-container {
+        flex-direction: column;       /* stack vertically on small screens */
+    }
+    .pricing-card {
+        margin-bottom: 20px;
+    }
+}

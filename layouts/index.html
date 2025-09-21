@@ -1,0 +1,39 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <h1>{{ .Title }}</h1>
+    <p class="hero-tagline">Affordable, Fast & Mobile-Friendly Websites for Small Businesses</p>
+    <!-- Hero button removed -->
+</section>
+
+<!-- Key Benefits / Features Section -->
+<section class="features-section">
+    <div class="features-container">
+        <div class="feature-card">
+            <h3>Fast Delivery</h3>
+            <p>Launch your website quickly and efficiently with minimal delays.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Mobile-Friendly</h3>
+            <p>Responsive design ensures your website looks great on any device.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Custom Design</h3>
+            <p>Tailored designs that match your brand and business goals.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Call-to-Action Section -->
+<section class="cta-section">
+    <p>Ready to take your business online?</p>
+    <a href="{{ "/contact/" | relURL }}" class="cta-btn">Contact Us Today</a>
+</section>
+
+<!-- Optional Markdown Content -->
+<div class="content">
+    {{ .Content }}
+</div>
+
+{{ end }}

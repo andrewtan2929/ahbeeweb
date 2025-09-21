@@ -1,0 +1,39 @@
+{{ define "main" }}
+<section class="page-title">
+    <h1>{{ .Title }}</h1>
+</section>
+
+<section class="page-subtitle">
+    <p class="subtitle-heading">Affordable Professional Websites for Small Businesses</p>
+    <p class="subtitle-description">We create clean, fast, and mobile-friendly websites tailored for your business needs.</p>
+</section>
+
+<section class="pricing-section">
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h2>Starter Site</h2>
+            <p>1–3 pages, mobile-friendly, fast delivery. Perfect for new businesses getting online quickly.</p>
+            <p><strong>Starting from $500</strong></p>
+            <a href="{{ "/contact/" | relURL }}" class="pricing-btn">Get Started</a>
+        </div>
+
+        <div class="pricing-card">
+            <h2>Business Site</h2>
+            <p>4–6 pages, portfolio/gallery section, Google Maps integration, domain & hosting guidance.</p>
+            <p><strong>Starting from $1,200</strong></p>
+            <a href="{{ "/contact/" | relURL }}" class="pricing-btn">Get Started</a>
+        </div>
+
+        <div class="pricing-card">
+            <h2>Custom Site</h2>
+            <p>Advanced websites with e-commerce, booking, or special features. Flexible pricing based on requirements.</p>
+            <p><strong>Starting from $2,500</strong></p>
+            <a href="{{ "/contact/" | relURL }}" class="pricing-btn">Get Started</a>
+        </div>
+    </div>
+</section>
+
+<div class="content">
+    {{ .Content }}
+</div>
+{{ end }}

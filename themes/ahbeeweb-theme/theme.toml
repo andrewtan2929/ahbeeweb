@@ -1,0 +1,5 @@
+name = "ahbeeweb-theme"
+license = "MIT"
+min_version = "0.111.0"
+description = "Custom theme for AhbeeWeb"
+authors = ["Andrew Tan"]

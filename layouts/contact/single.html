@@ -1,0 +1,69 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<section class="page-title hero">
+    <h1>{{ .Title }}</h1>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-wrapper">
+
+    <!-- Subtitle -->
+    <p class="subtitle-description">
+        We'd love to hear from you! Fill out the form below or reach us directly via email, phone, or visit our office.
+    </p>
+
+    <!-- Two-column layout -->
+    <div class="contact-content">
+
+        <!-- Contact Form -->
+        <div class="contact-form card">
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+                <input type="hidden" name="form-name" value="contact">
+
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required placeholder=" ">
+                    <label for="name">Name</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required placeholder=" ">
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                    <label for="message">Message</label>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info card">
+            <h2>Contact Information</h2>
+            <ul>
+                <li>
+                    <span class="icon">📧</span>
+                    <strong>Email:</strong>
+                    <a href="mailto:contact@ahbeefabrication.com">ahbee2963@gmail.com</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <strong>Phone:</strong>
+                    <a href="tel:+61123456789">+61 403 872 586</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <strong>Address:</strong>
+                    Perth, Western Australia
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+{{ end }}

@@ -1,0 +1,111 @@
+/* Hero Section */
+.hero-section {
+    background-color: #ADD8E6;    /* #FFD700; */
+    text-align: center;
+    padding: 2px 20px 5px 20px;
+    border-radius: 0px;
+}
+
+.hero-section h1 {
+    font-size: 2.75rem;
+    font-weight: bold;
+    margin-bottom: 2px;
+    color: #222;
+}
+
+.hero-tagline {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+/* Removed hero-btn styles since button is gone */
+
+/* Features Section */
+.features-section {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    flex: 1 1 30%;
+    background-color: #f9f9f9;
+    padding: 23px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.feature-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 12.5px;
+}
+
+.feature-card p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Call-to-Action Section */
+.cta-section {
+    background-color: #ADD8E6;      /* #222; */
+    color: #FFD700;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 0px;
+}
+
+.cta-section p {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 18px 35px;
+    font-size: 1.3rem;
+    background-color: #FFD700;
+    color: #222;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #e6c200;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 900px) {
+    .features-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .feature-card {
+        margin-bottom: 20px;
+        flex: 0 0 80%;
+    }
+    .hero-section {
+        padding: 80px 20px 40px 20px;
+    }
+    .cta-section {
+        padding: 40px 20px;
+    }
+}

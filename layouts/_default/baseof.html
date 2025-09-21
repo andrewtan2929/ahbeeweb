@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{{ "css/general.css" | relURL }}">
+
+    <!-- Page-specific CSS handled by partial -->
+    {{ partial "head/css.html" . }}
+
+    <title>{{ .Title }}</title>
+
+    <!-- Optional JS -->
+    <script src="{{ "js/portfolio.js" | relURL }}"></script>
+</head>
+<body>
+
+    {{ partial "header.html" . }}
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+
+</body>
+</html>

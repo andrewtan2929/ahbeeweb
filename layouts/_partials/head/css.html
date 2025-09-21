@@ -1,0 +1,22 @@
+<!-- General CSS -->
+<link rel="stylesheet" href="{{ "css/general.css" | relURL }}">
+
+<!-- Debug: prints page metadata so you can inspect what's being served -->
+<!-- debug: section={{ .Section }} base={{ .File.BaseFileName }} kind={{ .Kind }} path={{ .File.Path }} -->
+
+{{ $section := .Section }}
+{{ $base := .File.BaseFileName }}
+{{ $kind := .Kind }}
+
+{{ if eq $kind "home" }}
+  <link rel="stylesheet" href="{{ "css/homepage.css" | relURL }}">
+{{ else if or (eq $section "services") (eq $base "services") }}
+  <link rel="stylesheet" href="{{ "css/services.css" | relURL }}">
+{{ else if or (eq $section "portfolio") (eq $base "portfolio") }}
+  <link rel="stylesheet" href="{{ "css/portfolio.css" | relURL }}">
+{{ else if or (eq $section "contact") (eq $base "contact") }}
+  <link rel="stylesheet" href="{{ "css/contact.css" | relURL }}">
+{{ else }}
+  <!-- fallback -->
+  <link rel="stylesheet" href="{{ "css/homepage.css" | relURL }}">
+{{ end }}
