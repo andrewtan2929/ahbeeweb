@@ -61,19 +61,6 @@
     transform: scale(1.05);
 }
 
-/* Responsive */
-@media screen and (max-width: 600px) {
-    .carousel-thumbnails img {
-        width: 70px;
-    }
-}
-
-.container {
-  display: grid;
-  place-items: center; /* shorthand for justify-items + align-items */
-  height: 100vh;       /* optional */
-}
-
 /* Horizontal yellow bar with centered title */
 .page-title {
     background-color: #FFD700;   /* yellow bar */

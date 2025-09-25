@@ -193,28 +193,3 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* ================= Responsive ================= */
-@media (max-width: 768px) {
-    .contact-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .contact-form.card,
-    .contact-info.card {
-        flex: 1 1 100%;
-        max-width: 100%;
-        padding: 40px 20px;
-    }
-
-    .contact-wrapper {
-        padding: 0 15px;
-        gap: 30px;
-    }
-}
-
-.hidden {
-    display: none;
-    visibility: hidden;
-    height: 0;
-}

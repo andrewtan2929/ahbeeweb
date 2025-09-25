@@ -1,6 +1,6 @@
 /* Hero Section */
 .hero-section {
-    background-color: #ADD8E6;    /* #FFD700; */
+    background-color: #87CEFA;  /* enforce the desired color */
     text-align: center;
     padding: 2px 20px 5px 20px;
     border-radius: 0px;
@@ -18,6 +18,7 @@
     margin-bottom: 10px;
     color: #222;
 }
+
 
 /* Removed hero-btn styles since button is gone */
 
@@ -63,8 +64,8 @@
 
 /* Call-to-Action Section */
 .cta-section {
-    background-color: #ADD8E6;      /* #222; */
-    color: #FFD700;
+    background-color: #87CEFA;      /* #222; */
+    color: black;
     text-align: center;
     padding: 10px 20px;
     margin-top: 10px;
@@ -92,20 +93,3 @@
     background-color: #e6c200;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 900px) {
-    .features-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .feature-card {
-        margin-bottom: 20px;
-        flex: 0 0 80%;
-    }
-    .hero-section {
-        padding: 80px 20px 40px 20px;
-    }
-    .cta-section {
-        padding: 40px 20px;
-    }
-}

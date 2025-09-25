@@ -1,52 +1,84 @@
+/* General Reset */
 body {
     font-family: Arial, sans-serif;
-    overflow-x: hidden;     /* Prevent horizontal scroll */
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
 
+/* Header / Navbar */
 .navbar {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: blue;
 }
 
+/* Logo always left */
 .navbar .logo {
-    position: absolute;
-    left: 20px;
     font-weight: bold;
     color: #fff;
     font-size: 1.5rem;
+    display: flex;
+    align-items: center;
 }
 
+.navbar .logo img {
+    max-height: 50px;
+    margin-right: 10px;
+}
+
+/* Menu defaults (desktop) - centered */
 .navbar .menu {
     list-style: none;
     display: flex;
     gap: 30px;
+    margin-left: auto;
+    margin-right: auto; /* centers menu */
+    padding: 0;
 }
 
 .navbar .menu li a {
     text-decoration: none;
     color: #fff;
     font-weight: 500;
-    font-size: 25px; /* updated size */
-}
-
-.navbar .logo img {
-    display: block;
-    max-height: 50px; /* ensures logo fits nicely */
+    font-size: 22px;
 }
 
 /* Footer */
 footer {
     text-align: center;
     font-size: 1.2rem;
-    padding: 5px;
+    padding: 8px;
     background-color: blue;
     color: #fff;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* ============================= */
+/* Responsive - small screens    */
+/* ============================= */
+@media (max-width: 600px) {
+    .navbar {
+        justify-content: space-between; /* logo left, menu right */
+    }
+
+    .navbar .logo {
+        font-size: 1.2rem;              /* shrink text logo */
+    }
+
+    .navbar .logo img {
+        max-height: 22px;               /* shrink image logo */
+    }
+
+    .navbar .menu {
+        margin: 0;                       /* remove centering */
+        gap: 12px;                       /* tighter spacing */
+    }
+
+    .navbar .menu li a {
+        font-size: 16px;                 /* smaller font */
+    }
 }

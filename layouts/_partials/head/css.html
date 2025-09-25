@@ -1,7 +1,10 @@
-<!-- General CSS -->
+<!-- General CSS (always loaded) -->
 <link rel="stylesheet" href="{{ "css/general.css" | relURL }}">
 
-<!-- Debug: prints page metadata so you can inspect what's being served -->
+<!-- Responsive media queries (always loaded) -->
+<link rel="stylesheet" href="{{ "css/media.css" | relURL }}">
+
+<!-- Debug: check page metadata -->
 <!-- debug: section={{ .Section }} base={{ .File.BaseFileName }} kind={{ .Kind }} path={{ .File.Path }} -->
 
 {{ $section := .Section }}
