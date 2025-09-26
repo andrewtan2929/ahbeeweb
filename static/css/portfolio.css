@@ -1,3 +1,6 @@
+/* ============================= */
+/* Portfolio Carousel Base Styles */
+/* ============================= */
 .portfolio-carousel {
     max-width: 900px;
     margin: 50px auto;
@@ -10,11 +13,23 @@
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 15px;
+
+    /* New: ensure proper centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000; /* fallback background */
 }
 
 .carousel-container img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     border-radius: 10px;
+    display: block;
+    object-fit: contain; /* safer than cover for slideshows */
+    margin: auto;
 }
 
 /* Arrows */
@@ -64,16 +79,71 @@
 /* Horizontal yellow bar with centered title */
 .page-title {
     background-color: #FFD700;   /* yellow bar */
-    text-align: center;           /* center the title */
-    padding: 15px 0;              /* vertical spacing for the bar */
+    text-align: center;
+    padding: 15px 0;
 }
 
-/* Optional: style the title itself */
 .page-title h1 {
-    margin: 20px;                    /* remove default margin */
-    display: inline-block;        /* keeps it centered nicely */
-    font-size: 2.5rem;            /* adjust as needed */
-    color: #000;                  /* text color */
+    margin: 10px;
+    display: inline-block;
+    font-size: 2rem;
+    color: #000;
 }
 
+/* ============================= */
+/* iPad Portrait (around 772px) */
+/* ============================= */
+@media (min-width: 768px) and (max-width: 810px) and (orientation: portrait) {
+    .portfolio-carousel {
+        max-width: 90%;
+        margin: 40px auto;
+    }
 
+    .carousel-container {
+        height: 300px;  /* fixed safe height */
+    }
+
+    .carousel-thumbnails img {
+        width: 70px;
+        margin: 3px;
+    }
+
+    .carousel-btn {
+        font-size: 1.5rem;
+        padding: 8px;
+    }
+
+    .page-title h1 {
+        font-size: 2rem;
+        margin: 10px;
+    }
+}
+
+/* ============================= */
+/* iPad Landscape (around 1024px) */
+/* ============================= */
+@media (min-width: 811px) and (max-width: 1024px) and (orientation: landscape) {
+    .portfolio-carousel {
+        max-width: 85%;
+        margin: 45px auto;
+    }
+
+    .carousel-container {
+        height: 350px;  /* fixed safe height */
+    }
+
+    .carousel-thumbnails img {
+        width: 80px;
+        margin: 4px;
+    }
+
+    .carousel-btn {
+        font-size: 1.8rem;
+        padding: 9px;
+    }
+
+    .page-title h1 {
+        font-size: 2.2rem;
+        margin: 15px;
+    }
+}
