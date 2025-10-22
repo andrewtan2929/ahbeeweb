@@ -1,39 +1,48 @@
 /* ===== CONTACT PAGE ENHANCED STYLES ===== */
-
 /* Page Title/Hero Section - Gold Background */
 .page-title.hero {
     text-align: center;
-    padding: 0.1rem 2rem 0.1rem; /* Reduced from 4rem 2rem 2rem */
-    background: gold;
+    background: gold !important;
     color: #2d3748;
     margin-bottom: 0;
     width: 100%;
+    margin-top: -38px !important; /* Increased negative margin */
 }
 
 .page-title.hero h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.1rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Reset for header and main */
+header, main {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+header {
+    border: none !important;
+    box-shadow: none !important;
+}
 /* Contact Wrapper */
 .contact-wrapper {
-    padding: 3rem 2rem;
+    padding: 2rem 0.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    background: #f8fafc;
-    min-height: 60vh;
+    min-height: auto;
 }
 
 /* Subtitle Description */
 .subtitle-description {
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: #4a5568;
-    margin-bottom: 3rem;
-    line-height: 1.6;
-    max-width: 600px;
+    margin-top: 2px;
+    margin-bottom: 1.5rem;
+    line-height: 1.25;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -65,16 +74,15 @@
 .contact-form.card {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
+/* CENTERED FORM CONTAINER */
 .contact-form form {
     width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Center all form elements */
+    justify-content: center;
     gap: 0;
 }
 
@@ -86,16 +94,18 @@
     width: 100%;
 }
 
+/* CENTERED FORM GROUPS */
 .form-group {
     position: relative;
     margin-bottom: 2rem;
     width: 100%;
-    max-width: 400px;
+    max-width: 400px; /* Fixed maximum width */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Center the input field */
 }
 
+/* CENTERED FORM INPUTS */
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -107,12 +117,14 @@
     transition: all 0.3s ease;
     resize: vertical;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto; /* Center the input */
     font-family: inherit;
+    text-align: center; /* Center text inside inputs */
 }
 
 .form-group textarea {
     min-height: 120px;
+    text-align: left; /* Keep textarea text left-aligned */
 }
 
 .form-group input:focus,
@@ -122,6 +134,7 @@
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
+/* CENTERED LABELS */
 .form-group label {
     position: absolute;
     top: 1rem;
@@ -138,7 +151,7 @@
     white-space: nowrap;
 }
 
-/* Floating Labels */
+/* Floating Labels - CENTERED */
 .form-group input:focus + label,
 .form-group textarea:focus + label,
 .form-group input:not(:placeholder-shown) + label,
@@ -151,10 +164,10 @@
     font-weight: 600;
 }
 
-/* Submit Button */
+/* CENTERED SUBMIT BUTTON */
 .contact-form button {
     width: 100%;
-    max-width: 400px;
+    max-width: 400px; /* Same max-width as form fields */
     padding: 1rem 2rem;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -167,7 +180,7 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto; /* Center the button */
 }
 
 .contact-form button:hover {
@@ -179,7 +192,7 @@
     transform: translateY(0);
 }
 
-/* Success Message */
+/* CENTERED SUCCESS MESSAGE */
 #form-success {
     text-align: center;
     padding: 1rem;
@@ -191,12 +204,17 @@
     font-weight: 500;
     display: none;
     width: 100%;
-    max-width: 400px;
+    max-width: 400px; /* Same max-width as form fields */
     margin-left: auto;
     margin-right: auto;
 }
 
 /* ===== CONTACT INFO STYLES ===== */
+.contact-info.card {
+    display: flex;
+    flex-direction: column;
+}
+
 .contact-info h2 {
     color: #2d3748;
     margin-bottom: 2rem;
@@ -252,7 +270,6 @@
 
 /* Additional Contact Methods */
 .contact-methods {
-    margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid #e2e8f0;
     width: 100%;
@@ -359,9 +376,30 @@
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    /* Laptop devices */
+    .contact-content {
+        gap: 2rem;
+    }
+
+    .card {
+        padding: 2rem;
+    }
+
+    .form-group {
+        max-width: 350px;
+    }
+
+    .contact-form button,
+    #form-success {
+        max-width: 350px;
+    }
+}
+
 @media (max-width: 768px) {
+    /* Tablet devices */
     .page-title.hero {
-        padding: 0.1rem 1rem 0.1rem; /* Reduced for mobile too */
+        padding: 0.1rem 1rem 0.1rem;
     }
 
     .page-title.hero h1 {
@@ -375,10 +413,14 @@
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        align-items: center; /* Center items in single column */
     }
 
     .card {
         padding: 2rem;
+        margin: 0 auto; /* Center cards on mobile */
+        max-width: 500px; /* Limit card width on mobile */
+        width: 100%;
     }
 
     .subtitle-description {
@@ -386,6 +428,7 @@
         margin-bottom: 2rem;
     }
 
+    /* Center contact info items on mobile */
     .contact-info li {
         flex-direction: column;
         text-align: center;
@@ -407,11 +450,17 @@
     #form-success {
         max-width: 100%;
     }
+
+    /* Adjust button margin for mobile */
+    .contact-form button {
+        margin-top: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
+    /* Mobile devices */
     .page-title.hero {
-        padding: 0.1rem 1rem 0.1rem; /* Consistent reduced padding */
+        padding: 0.1rem 1rem 0.1rem;
     }
 
     .page-title.hero h1 {
@@ -470,6 +519,22 @@
 
     .contact-form button {
         padding: 0.75rem 1rem;
+    }
+}
+
+/* Large desktop screens */
+@media (min-width: 1440px) {
+    .contact-wrapper {
+        max-width: 1400px;
+    }
+
+    .form-group {
+        max-width: 450px;
+    }
+
+    .contact-form button,
+    #form-success {
+        max-width: 450px;
     }
 }
 
