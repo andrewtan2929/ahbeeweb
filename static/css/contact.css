@@ -1,30 +1,20 @@
-/* ===== CONTACT PAGE ENHANCED STYLES ===== */
-/* Page Title/Hero Section - Gold Background */
+/* ===== CONTACT PAGE STYLES ===== */
+/* Page Title/Hero Section */
 .page-title.hero {
     text-align: center;
     background: gold !important;
     color: #2d3748;
-    margin-bottom: 0;
+    margin: 0 !important;
+    padding: 0.5rem 2rem !important;
     width: 100%;
-    margin-top: -15px !important;
 }
 
 .page-title.hero h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 0.1rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Reset for header and main */
-header, main {
     margin: 0 !important;
     padding: 0 !important;
-}
-
-header {
-    border: none !important;
-    box-shadow: none !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Contact Wrapper */
@@ -32,7 +22,6 @@ header {
     padding: 2rem 0.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: auto;
 }
 
 /* Subtitle Description */
@@ -40,23 +29,20 @@ header {
     text-align: center;
     font-size: 1.5rem;
     color: #4a5568;
-    margin-top: 2px;
-    margin-bottom: 1.5rem;
+    margin: 2px auto 1.5rem;
     line-height: 1.25;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-/* Contact Content Layout - EQUAL HEIGHT CARDS */
+/* Contact Content Layout - Equal Height Cards */
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: stretch; /* This makes cards equal height */
+    align-items: start; /* Start aligned but same height */
 }
 
-/* Card Base Styles - EQUAL HEIGHT */
+/* Card Base Styles */
 .card {
     background: white;
     border-radius: 15px;
@@ -75,44 +61,37 @@ header {
 
 /* ===== CONTACT FORM STYLES ===== */
 .contact-form.card {
-    display: flex;
-    flex-direction: column;
-}
-
-/* CENTERED FORM CONTAINER */
-.contact-form form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center !important; /* Force center alignment */
-    justify-content: center;
-    gap: 0;
-    margin: 0 auto !important;
+    /* Flex container for form */
 }
 
 .contact-form h2 {
     color: #2d3748;
     margin-bottom: 2rem;
     font-size: 1.8rem;
-    text-align: center !important;
+    text-align: center;
     width: 100%;
 }
 
-/* CENTERED FORM GROUPS */
+/* Form container - centers everything */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Form groups - centered containers */
 .form-group {
     position: relative;
     margin-bottom: 2rem;
     width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center !important; /* Force center */
+    max-width: 400px; /* Fixed width for all fields */
 }
 
-/* CENTERED FORM INPUTS */
+/* Input fields - centered within their containers */
 .form-group input,
 .form-group textarea {
-    width: 100% !important;
+    width: 100%;
     padding: 1rem;
     border: 2px solid #e2e8f0;
     border-radius: 8px;
@@ -121,14 +100,11 @@ header {
     transition: all 0.3s ease;
     resize: vertical;
     display: block;
-    margin: 0 auto !important; /* Force center */
     font-family: inherit;
-    text-align: center; /* Center text inside */
 }
 
 .form-group textarea {
     min-height: 120px;
-    text-align: left; /* Keep textarea text left-aligned but container centered */
 }
 
 .form-group input:focus,
@@ -138,40 +114,39 @@ header {
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-/* CENTERED LABELS */
+/* Labels - centered above fields */
 .form-group label {
     position: absolute;
     top: 1rem;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    left: 50%;
+    transform: translateX(-50%);
     color: #718096;
     font-size: 1rem;
     pointer-events: none;
     transition: all 0.3s ease;
     background: white;
     padding: 0 0.5rem;
-    text-align: center !important;
-    width: auto;
+    text-align: center;
     white-space: nowrap;
 }
 
-/* Floating Labels - CENTERED */
+/* Floating labels */
 .form-group input:focus + label,
 .form-group textarea:focus + label,
 .form-group input:not(:placeholder-shown) + label,
 .form-group textarea:not(:placeholder-shown) + label {
     top: -0.5rem;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 0.8rem;
     color: #667eea;
     font-weight: 600;
 }
 
-/* CENTERED SUBMIT BUTTON */
+/* Submit button - centered */
 .contact-form button {
-    width: 100% !important;
-    max-width: 400px !important;
+    width: 100%;
+    max-width: 400px;
     padding: 1rem 2rem;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -184,7 +159,7 @@ header {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: block;
-    margin: 0 auto !important; /* Force center */
+    margin: 0 auto;
 }
 
 .contact-form button:hover {
@@ -192,13 +167,9 @@ header {
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
-.contact-form button:active {
-    transform: translateY(0);
-}
-
-/* CENTERED SUCCESS MESSAGE */
+/* Success message - centered */
 #form-success {
-    text-align: center !important;
+    text-align: center;
     padding: 1rem;
     background: #c6f6d5;
     color: #22543d;
@@ -208,24 +179,23 @@ header {
     font-weight: 500;
     display: none;
     width: 100%;
-    max-width: 400px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ===== CONTACT INFO STYLES ===== */
 .contact-info.card {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    height: 100%; /* Take full grid height */
+    height: 100%; /* Take full height of grid cell */
 }
 
 .contact-info h2 {
     color: #2d3748;
     margin-bottom: 2rem;
     font-size: 1.8rem;
-    text-align: center !important;
+    text-align: center;
     width: 100%;
 }
 
@@ -234,9 +204,10 @@ header {
     padding: 0;
     margin: 0;
     width: 100%;
+    flex-grow: 1; /* Take remaining space to match height */
     display: flex;
     flex-direction: column;
-    align-items: center !important; /* Center list items */
+    justify-content: center; /* Center content vertically */
 }
 
 .contact-info li {
@@ -247,9 +218,8 @@ header {
     border-radius: 8px;
     transition: background 0.3s ease;
     width: 100%;
-    max-width: 400px; /* Match form field width */
-    justify-content: center !important; /* Center content */
-    text-align: center !important;
+    justify-content: center; /* Center content horizontally */
+    text-align: center;
 }
 
 .contact-info li:hover {
@@ -260,7 +230,6 @@ header {
     font-size: 1.5rem;
     margin-right: 1rem;
     flex-shrink: 0;
-    min-width: 30px;
 }
 
 .contact-info strong {
@@ -282,10 +251,6 @@ header {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-    .page-title.hero {
-        padding: 0.1rem 1rem 0.1rem;
-    }
-
     .page-title.hero h1 {
         font-size: 2.5rem;
     }
@@ -297,7 +262,6 @@ header {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
-        align-items: stretch; /* Maintain equal height */
     }
 
     .card {
@@ -306,41 +270,24 @@ header {
 
     .subtitle-description {
         font-size: 1.1rem;
-        margin-bottom: 2rem;
+    }
+
+    .contact-info ul {
+        justify-content: flex-start; /* Reset vertical centering on mobile */
     }
 
     .contact-info li {
         flex-direction: column;
-        text-align: center !important;
-        align-items: center !important;
+        text-align: center;
     }
 
     .contact-info .icon {
         margin-right: 0;
         margin-bottom: 0.5rem;
     }
-
-    .form-group {
-        max-width: 100% !important;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .contact-form button,
-    #form-success {
-        max-width: 100% !important;
-    }
-
-    .contact-form button {
-        margin-top: 1rem;
-    }
 }
 
 @media (max-width: 480px) {
-    .page-title.hero {
-        padding: 0.1rem 1rem 0.1rem;
-    }
-
     .page-title.hero h1 {
         font-size: 2rem;
     }
@@ -367,25 +314,5 @@ header {
     .contact-info h2 {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
-    }
-}
-
-/* Small mobile devices */
-@media (max-width: 360px) {
-    .page-title.hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .card {
-        padding: 1rem;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        padding: 0.75rem;
-    }
-
-    .contact-form button {
-        padding: 0.75rem 1rem;
     }
 }
