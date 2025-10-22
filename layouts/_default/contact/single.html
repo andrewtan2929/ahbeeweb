@@ -58,7 +58,7 @@
         <div class="contact-info card">
             <h2>Contact Information</h2>
             <ul>
-                <li><span class="icon">📧</span> <strong>Email:</strong> <a href="mailto:ahbee2963@gmail.com">ahbee2963@gmail.com</a></li>
+                <li><span class="icon">📧</span> <strong>Email:</strong> <a href="mailto:ahbeeweb@gmail.com">ahbeeweb@gmail.com</a></li>
                 <li><span class="icon">📞</span> <strong>Phone:</strong> <a href="tel:+61403872586">+61 403 872 586</a></li>
                 <li><span class="icon">📍</span> <strong>Address:</strong> Perth, Western Australia</li>
             </ul>
@@ -68,28 +68,163 @@
 
 </section>
 
-<!-- JavaScript for popup submission -->
+<!-- JavaScript for contact form -->
 <script>
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent default page reload
-
-    const form = e.target;
-    const data = new FormData(form);
-
-    // Submit the form to Netlify
-    fetch("/", {
-        method: "POST",
-        body: data
-    }).then(function() {
-        // Show success message
-        document.getElementById('form-success').style.display = 'block';
-        // Clear the form fields
-        form.reset();
-    }).catch(function(error) {
-        alert("Oops! There was a problem submitting your form.");
-        console.error(error);
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait a bit longer to ensure all DOM is loaded
+    setTimeout(initializeContactForm, 100);
 });
+
+function initializeContactForm() {
+    const contactForm = document.getElementById('contact-form');
+
+    // Debug: Check what elements exist
+    console.log('Contact form element:', contactForm);
+
+    // Only initialize if contact form exists on this page
+    if (!contactForm) {
+        console.log('No contact form found on this page');
+        return;
+    }
+
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const inputs = contactForm.querySelectorAll('input, textarea');
+
+    console.log('Contact form found, initializing...');
+    console.log('Submit button:', submitButton);
+    console.log('Inputs found:', inputs.length);
+
+    // Safety check - only proceed if we have the necessary elements
+    if (!submitButton || inputs.length === 0) {
+        console.log('Missing form elements, stopping initialization');
+        return;
+    }
+
+    // Add real-time validation to each input that exists
+    inputs.forEach(input => {
+        if (input) {
+            input.addEventListener('blur', validateField);
+            input.addEventListener('input', clearError);
+        }
+    });
+
+    function validateField(e) {
+        const field = e.target;
+        const formGroup = field.closest('.form-group');
+
+        if (!formGroup) return;
+
+        if (field.hasAttribute('required') && !field.value.trim()) {
+            showError(formGroup, 'This field is required');
+        } else if (field.type === 'email' && field.value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(field.value)) {
+                showError(formGroup, 'Please enter a valid email address');
+            }
+        } else {
+            clearError({ target: field });
+        }
+    }
+
+    function showError(formGroup, message) {
+        formGroup.classList.add('error');
+        let errorElement = formGroup.querySelector('.error-message');
+        if (!errorElement) {
+            errorElement = document.createElement('div');
+            errorElement.className = 'error-message';
+            formGroup.appendChild(errorElement);
+        }
+        errorElement.textContent = message;
+    }
+
+    function clearError(e) {
+        const field = e.target;
+        const formGroup = field.closest('.form-group');
+        if (!formGroup) return;
+
+        formGroup.classList.remove('error');
+        const errorElement = formGroup.querySelector('.error-message');
+        if (errorElement) {
+            errorElement.remove();
+        }
+    }
+
+    // Add submit event listener safely
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            console.log('Form submission started');
+
+            // Validate all fields before submission
+            let isValid = true;
+            inputs.forEach(input => {
+                if (input) {
+                    const event = new Event('blur');
+                    input.dispatchEvent(event);
+                    const formGroup = input.closest('.form-group');
+                    if (formGroup && formGroup.classList.contains('error')) {
+                        isValid = false;
+                    }
+                }
+            });
+
+            if (!isValid) {
+                alert('Please fix the errors before submitting.');
+                return;
+            }
+
+            // Show loading state
+            contactForm.classList.add('loading');
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+            }
+
+            try {
+                const formData = new FormData(contactForm);
+
+                const response = await fetch('/', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Show success message
+                    const successElement = document.getElementById('form-success');
+                    if (successElement) {
+                        successElement.style.display = 'block';
+                    }
+                    contactForm.reset();
+
+                    // Scroll to success message
+                    if (successElement) {
+                        successElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                alert("Oops! There was a problem submitting your form. Please try again.");
+                console.error('Form submission error:', error);
+            } finally {
+                // Reset loading state
+                contactForm.classList.remove('loading');
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Send Message';
+                }
+            }
+        });
+    }
+
+    console.log('Contact form initialized successfully');
+}
 </script>
 
 {{ end }}

@@ -6,7 +6,7 @@
 <section class="portfolio-carousel">
     <div class="carousel-container">
         <!-- Main display image -->
-        <img id="main-image" src="{{ "images/project1.png" | relURL }}" alt="Project Image">
+        <img id="main-image" src="{{ "images/1.png" | relURL }}" alt="Project Image">
 
         <!-- Navigation arrows -->
         <button id="prev-btn" class="carousel-btn">&#10094;</button>
@@ -15,14 +15,17 @@
 
     <!-- Thumbnails -->
     <div class="carousel-thumbnails">
-        <img class="thumb active" src="{{ "images/1.png" | relURL }}" alt="Project 1">
-        <img class="thumb" src="{{ "images/2.png" | relURL }}" alt="Project 2">
-        <img class="thumb" src="{{ "images/3.png" | relURL }}" alt="Project 3">
-        <img class="thumb" src="{{ "images/4.png" | relURL }}" alt="Project 4">
-        <img class="thumb" src="{{ "images/5.png" | relURL }}" alt="Project 5">
-        <img class="thumb" src="{{ "images/6.png" | relURL }}" alt="Project 6">
-        <img class="thumb" src="{{ "images/7.png" | relURL }}" alt="Project 7">
+        <img class="thumb active" src="{{ "images/1.png" | relURL }}" alt="Project 1" data-index="0">
+        <img class="thumb" src="{{ "images/2.png" | relURL }}" alt="Project 2" data-index="1">
+        <img class="thumb" src="{{ "images/3.png" | relURL }}" alt="Project 3" data-index="2">
+        <img class="thumb" src="{{ "images/4.png" | relURL }}" alt="Project 4" data-index="3">
+        <img class="thumb" src="{{ "images/5.png" | relURL }}" alt="Project 5" data-index="4">
+        <img class="thumb" src="{{ "images/6.png" | relURL }}" alt="Project 6" data-index="5">
+        <img class="thumb" src="{{ "images/7.png" | relURL }}" alt="Project 7" data-index="6">
     </div>
 </section>
+
+<!-- Load JavaScript AFTER the HTML is rendered -->
+<script src="{{ "js/portfolio.js" | relURL }}"></script>
 
 {{ end }}

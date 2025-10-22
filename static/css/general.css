@@ -1,84 +1,153 @@
-/* General Reset */
-body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
+/* ===== FOOTER SECTION ===== */
+/* Ensure html and body take full height */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
-/* Header / Navbar */
+/* Use flexbox to push footer to bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* Main content grows to push footer down */
+main {
+    flex: 1;
+}
+
+/* ===== NAVBAR SECTION ===== */
 .navbar {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    justify-content: center;
+    padding: 20px 20px;
     background-color: blue;
+    position: relative;
+    width: 100%;
 }
 
-/* Logo always left */
+.navbar-container {
+    width: 100%;
+}
+
+/* Logo */
 .navbar .logo {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-items: center;
     font-weight: bold;
     color: #fff;
     font-size: 1.5rem;
-    display: flex;
-    align-items: center;
+    flex-shrink: 1;
+    min-width: 0;
 }
 
 .navbar .logo img {
     max-height: 50px;
     margin-right: 10px;
+    flex-shrink: 1;
+    transition: all 0.3s ease;
 }
 
-/* Menu defaults (desktop) - centered */
+/* Nav menu - horizontal always */
 .navbar .menu {
     list-style: none;
     display: flex;
     gap: 30px;
-    margin-left: auto;
-    margin-right: auto; /* centers menu */
-    padding: 0;
 }
 
 .navbar .menu li a {
     text-decoration: none;
     color: #fff;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 35px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
 }
 
-/* Footer */
+/* Footer styles */
 footer {
     text-align: center;
-    font-size: 1.2rem;
-    padding: 8px;
-    background-color: blue;
-    color: #fff;
-    position: fixed;
-    bottom: 0;
+    padding: 30px 20px;
+    background-color: #2d3748;
+    color: white;
     width: 100%;
+    border-top: 3px solid #4299e1;
+    /* Remove margin-top since flexbox handles positioning */
+    margin-top: auto;
 }
 
+footer p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+footer:hover {
+    background-color: #1a202c;
+    transition: background-color 0.3s ease;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: #cbd5e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+}
 /* ============================= */
-/* Responsive - small screens    */
+/* Mobile portrait adjustments   */
 /* ============================= */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     .navbar {
-        justify-content: space-between; /* logo left, menu right */
+        justify-content: flex-end;
     }
 
     .navbar .logo {
-        font-size: 1.2rem;              /* shrink text logo */
+        position: static;
+        font-size: 1rem;
     }
 
     .navbar .logo img {
-        max-height: 22px;               /* shrink image logo */
-    }
-
-    .navbar .menu {
-        margin: 0;                       /* remove centering */
-        gap: 12px;                       /* tighter spacing */
+        max-height: 30px;
     }
 
     .navbar .menu li a {
-        font-size: 16px;                 /* smaller font */
+        font-size: 14px;
+    }
+
+    /* Mobile footer adjustments */
+    footer {
+        padding: 20px 15px;
+        margin-top: 30px;
+    }
+
+    footer p {
+        font-size: 1rem;
     }
 }

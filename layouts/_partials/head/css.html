@@ -1,16 +1,11 @@
 <!-- General CSS (always loaded) -->
 <link rel="stylesheet" href="{{ "css/general.css" | relURL }}">
 
-<!-- Responsive media queries (always loaded) -->
-<link rel="stylesheet" href="{{ "css/media.css" | relURL }}">
-
-<!-- Debug: check page metadata -->
-<!-- debug: section={{ .Section }} base={{ .File.BaseFileName }} kind={{ .Kind }} path={{ .File.Path }} -->
-
 {{ $section := .Section }}
 {{ $base := .File.BaseFileName }}
 {{ $kind := .Kind }}
 
+<!-- Page-specific CSS -->
 {{ if eq $kind "home" }}
   <link rel="stylesheet" href="{{ "css/homepage.css" | relURL }}">
 {{ else if or (eq $section "services") (eq $base "services") }}
@@ -20,6 +15,8 @@
 {{ else if or (eq $section "contact") (eq $base "contact") }}
   <link rel="stylesheet" href="{{ "css/contact.css" | relURL }}">
 {{ else }}
-  <!-- fallback -->
   <link rel="stylesheet" href="{{ "css/homepage.css" | relURL }}">
 {{ end }}
+
+<!-- Responsive media queries (always loaded last) -->
+<link rel="stylesheet" href="{{ "css/media.css" | relURL }}">
