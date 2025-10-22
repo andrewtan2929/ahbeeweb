@@ -122,6 +122,16 @@
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
+/* === FIX: Center the rectangular fields inside the contact card === */
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    width: 80%;              /* Limit field width to 80% of card */
+    max-width: 400px;        /* Prevent overly wide fields */
+    margin: 0 auto;          /* Keep them centered */
+    display: block;          /* Ensure proper centering */
+}
+
+
 /* Labels - perfectly centered */
 .form-group label {
     position: absolute;
