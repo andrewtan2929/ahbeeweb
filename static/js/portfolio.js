@@ -67,3 +67,4 @@ function initializeCarousel() {
 
     // Rest of your portfolio code...
 }
+

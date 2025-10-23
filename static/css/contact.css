@@ -125,27 +125,10 @@
 /* === FIX: Center the rectangular fields inside the contact card === */
 .contact-form .form-group input,
 .contact-form .form-group textarea {
-    width: 80%;              /* Limit field width to 80% of card */
+    width: 100%;              /* Limit field width to 80% of card */
     max-width: 400px;        /* Prevent overly wide fields */
     margin: 0 auto;          /* Keep them centered */
     display: block;          /* Ensure proper centering */
-}
-
-
-/* Labels - perfectly centered */
-.form-group label {
-    position: absolute;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #718096;
-    font-size: 1rem;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    background: white;
-    padding: 0 0.5rem;
-    text-align: center;
-    white-space: nowrap;
 }
 
 /* Floating labels */
@@ -242,6 +225,19 @@
 
 .contact-info li:hover {
     background: #f7fafc;
+}
+
+/* Increase Contact Info Font Size */
+.contact-info li {
+    font-size: 1.5rem; /* Increase from default size */
+}
+
+.contact-info strong {
+    font-size: 1.5rem; /* Make the labels (Email, Phone, Address) larger */
+}
+
+.contact-info a {
+    font-size: 1.5rem; /* Make the actual contact info larger */
 }
 
 .contact-info .icon {
@@ -349,5 +345,4 @@
         margin-bottom: 1.5rem;
     }
 }
-
 
