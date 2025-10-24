@@ -1,9 +1,4 @@
 <header>
-  <!-- Debug Banner -->
-  <div class="debug-mobile" id="debugInfo">
-    Mobile View - Menu is CLOSED
-  </div>
-
   <nav class="navbar">
     <div class="logo">
       <a href="{{ "/" | relURL }}">
@@ -11,64 +6,47 @@
       </a>
     </div>
 
-    <button class="hamburger" aria-label="Toggle menu">
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
 
-    <ul class="menu desktop-nav">
+    <!-- Desktop Menu -->
+    <ul class="menu">
       <li><a href="{{ "/" | relURL }}">Home</a></li>
       <li><a href="{{ "/services/" | relURL }}">Services</a></li>
       <li><a href="{{ "/portfolio/" | relURL }}">Portfolio</a></li>
       <li><a href="{{ "/contact/" | relURL }}">Contact</a></li>
     </ul>
+
+    <!-- Mobile Menu (separate element) -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <a href="{{ "/services/" | relURL }}">Services</a>
+      <a href="{{ "/portfolio/" | relURL }}">Portfolio</a>
+      <a href="{{ "/contact/" | relURL }}">Contact</a>
+    </div>
   </nav>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.querySelector(".hamburger");
-        const menu = document.querySelector(".menu");
-        const debugInfo = document.querySelector("#debugInfo");
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
 
-        console.log("Script loaded - Elements found:", {
-            hamburger: !!hamburger,
-            menu: !!menu,
-            debugInfo: !!debugInfo
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+
+      // Close menu when clicking on links
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
         });
-
-        if (hamburger && menu) {
-            hamburger.addEventListener("click", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log("Hamburger clicked!");
-
-                // Force toggle
-                hamburger.classList.toggle("active");
-                menu.classList.toggle("active");
-
-                // Update debug info
-                if (debugInfo) {
-                    const isOpen = menu.classList.contains("active");
-                    debugInfo.textContent = `Mobile View - Menu is ${isOpen ? 'OPEN' : 'CLOSED'}`;
-                    debugInfo.style.background = isOpen ? 'green' : 'red';
-                    console.log("Menu state:", isOpen ? "OPEN" : "CLOSED");
-                }
-            });
-
-            // Initial debug info
-            if (debugInfo) {
-                debugInfo.textContent = "Mobile View - Ready for testing";
-            }
-        } else {
-            console.error("Missing elements:", {
-                hamburger: !!hamburger,
-                menu: !!menu
-            });
-            if (debugInfo) {
-                debugInfo.textContent = "ERROR: Elements not found";
-            }
-        }
+      });
     });
-</script>
+  </script>
 </header>
