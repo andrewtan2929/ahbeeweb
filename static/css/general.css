@@ -94,21 +94,23 @@ main {
     display: flex;
   }
 
-  .navbar .menu {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: blue;
-    padding: 10px 20px;
-    display: none;
-  }
+.navbar .menu {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: blue;
+  padding: 10px 20px;
+  display: none; /* hidden by default */
+  z-index: 999; /* ensure visible on top */
+}
 
-  .navbar .menu.active {
-    display: flex;
-  }
+.navbar .menu.active {
+  display: flex; /* show when active */
+}
+
 
   .navbar .menu li a {
     font-size: 16px;
