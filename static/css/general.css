@@ -49,7 +49,7 @@ main {
     font-size: 1.1rem;
 }
 
-/* Hide hamburger on desktop */
+/* Hide hamburger and mobile menu on desktop */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -67,6 +67,11 @@ main {
     transition: 0.3s;
 }
 
+/* Hide mobile menu by default */
+.mobile-menu {
+    display: none;
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
     /* Show hamburger */
@@ -80,15 +85,15 @@ main {
         display: none;
     }
 
-    /* Mobile menu styles */
+    /* Show and style mobile menu */
     .mobile-menu {
+        display: flex;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
         background: darkblue;
-        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
