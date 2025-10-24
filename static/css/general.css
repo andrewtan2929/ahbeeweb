@@ -12,7 +12,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Full viewport height */
+    min-height: 100vh;
 }
 
 /* Main content grows to push footer down */
@@ -29,8 +29,8 @@ main {
   background-color: blue;
   width: 100%;
   box-sizing: border-box;
-  position: relative; /* ✅ added: ensures absolute-positioned dropdown attaches to navbar */
-  z-index: 1000; /* keep navbar on top of page content */
+  position: relative;
+  z-index: 1000;
 }
 
 /* Logo */
@@ -39,7 +39,7 @@ main {
   transition: all 0.3s ease;
 }
 
-/* Desktop Menu */
+/* Desktop Menu - ALWAYS VISIBLE on desktop */
 .navbar .menu {
   list-style: none;
   display: flex;
@@ -56,7 +56,7 @@ main {
   transition: all 0.3s ease;
 }
 
-/* Hamburger button */
+/* Hamburger button - HIDDEN by default */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -87,35 +87,35 @@ main {
 }
 
 /* ============================= */
-/* Responsive Adjustments        */
+/* Mobile Responsive Styles      */
 /* ============================= */
-
-/* Show hamburger and hide menu on mobile */
 @media (max-width: 768px) {
+  /* Show hamburger on mobile */
   .hamburger {
     display: flex;
   }
 
-  /* ✅ fixed mobile dropdown styling */
+  /* Hide desktop menu by default on mobile */
   .navbar .menu {
+    display: none;
     position: absolute;
-    top: 100%; /* ✅ sits directly below the navbar */
+    top: 100%;
     left: 0;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     background-color: blue;
     padding: 10px 20px;
-    display: none; /* hidden by default */
     z-index: 9999;
   }
 
+  /* Show menu when active class is added */
   .navbar .menu.active {
-    display: flex; /* show when active */
+    display: flex;
   }
 
   .navbar .menu li {
-    width: 100%; /* full width for mobile links */
+    width: 100%;
   }
 
   .navbar .menu li a {
@@ -140,59 +140,5 @@ main {
   .navbar .menu li a {
     font-size: 14px;
     padding: 6px 0;
-  }
-}
-
-/* Base menu styles */
-.navbar .menu {
-  list-style: none;
-  display: flex;          /* horizontal by default */
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-/* Mobile menu hidden by default */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    cursor: pointer;
-    background: none;
-    border: none;
-  }
-
-  .hamburger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .navbar .menu {
-    display: none;             /* hidden by default */
-    flex-direction: column;    /* stack items vertically */
-    position: absolute;        /* dropdown */
-    top: 100%;                 /* directly below navbar */
-    left: 0;
-    width: 100%;
-    background-color: blue;
-    padding: 10px 20px;
-    z-index: 9999;
-  }
-
-  /* Show menu when active */
-  .navbar .menu.active {
-    display: flex !important;  /* override any other rule */
-  }
-
-  .navbar .menu li a {
-    width: 100%;
-    display: block;
-    font-size: 16px;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
   }
 }
