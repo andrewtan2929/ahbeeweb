@@ -76,10 +76,7 @@ main {
   }
 
   /* Hide menu by default on mobile */
-  .navbar .menu {/* Temporary debug - add this to your CSS */
-.menu {
-  border: 2px solid red !important; /* This will highlight the menu */
-}
+  .navbar .menu {
     display: none;
     position: absolute;
     top: 100%;
