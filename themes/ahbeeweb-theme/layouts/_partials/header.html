@@ -30,40 +30,44 @@
         const hamburger = document.querySelector(".hamburger");
         const menu = document.querySelector(".menu");
         const debugInfo = document.querySelector("#debugInfo");
-        const body = document.body;
 
-        function updateDebugInfo() {
-            if (debugInfo) {
-                const isOpen = menu.classList.contains("active");
-                debugInfo.textContent = `Mobile View - Menu is ${isOpen ? 'OPEN' : 'CLOSED'}`;
-                debugInfo.style.background = isOpen ? 'green' : 'red';
-
-                // Prevent body scrolling when menu is open
-                if (isOpen) {
-                    body.classList.add('menu-open');
-                } else {
-                    body.classList.remove('menu-open');
-                }
-            }
-        }
+        console.log("Script loaded - Elements found:", {
+            hamburger: !!hamburger,
+            menu: !!menu,
+            debugInfo: !!debugInfo
+        });
 
         if (hamburger && menu) {
-            hamburger.addEventListener("click", function() {
+            hamburger.addEventListener("click", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("Hamburger clicked!");
+
+                // Force toggle
                 hamburger.classList.toggle("active");
                 menu.classList.toggle("active");
-                updateDebugInfo();
+
+                // Update debug info
+                if (debugInfo) {
+                    const isOpen = menu.classList.contains("active");
+                    debugInfo.textContent = `Mobile View - Menu is ${isOpen ? 'OPEN' : 'CLOSED'}`;
+                    debugInfo.style.background = isOpen ? 'green' : 'red';
+                    console.log("Menu state:", isOpen ? "OPEN" : "CLOSED");
+                }
             });
 
-            // Close menu when clicking on links
-            menu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove("active");
-                    menu.classList.remove("active");
-                    updateDebugInfo();
-                });
+            // Initial debug info
+            if (debugInfo) {
+                debugInfo.textContent = "Mobile View - Ready for testing";
+            }
+        } else {
+            console.error("Missing elements:", {
+                hamburger: !!hamburger,
+                menu: !!menu
             });
-
-            updateDebugInfo();
+            if (debugInfo) {
+                debugInfo.textContent = "ERROR: Elements not found";
+            }
         }
     });
 </script>
