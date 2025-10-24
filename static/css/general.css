@@ -46,7 +46,7 @@ main {
 .menu li a {
     color: white;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 
 /* Hide hamburger and mobile menu on desktop */
