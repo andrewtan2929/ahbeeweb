@@ -1,18 +1,37 @@
 <header>
-    <nav class="navbar">
-        <div class="logo">
-            <a href="{{ "/" | relURL }}">
-                <img src="{{ "images/AhbeeWeb.png" | relURL }}" alt="AhbeeWeb Logo" height="50">
-            </a>
-        </div>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="{{ "/" | relURL }}">
+        <img src="{{ "images/AhbeeWeb.png" | relURL }}" alt="AhbeeWeb Logo" height="50">
+      </a>
+    </div>
 
-        <!-- Desktop Navigation -->
-        <ul class="menu desktop-nav">
-            <li><a href="{{ "/" | relURL }}">Home</a></li>
-            <li><a href="{{ "/services/" | relURL }}">Services</a></li>
-            <li><a href="{{ "/portfolio/" | relURL }}">Portfolio</a></li>
-            <li><a href="{{ "/contact/" | relURL }}">Contact</a></li>
-        </ul>
+    <!-- Hamburger button (visible on mobile only) -->
+    <button class="hamburger" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
+    <!-- Navigation Menu -->
+    <ul class="menu desktop-nav">
+      <li><a href="{{ "/" | relURL }}">Home</a></li>
+      <li><a href="{{ "/services/" | relURL }}">Services</a></li>
+      <li><a href="{{ "/portfolio/" | relURL }}">Portfolio</a></li>
+      <li><a href="{{ "/contact/" | relURL }}">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Toggle script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.querySelector(".hamburger");
+      const menu = document.querySelector(".menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        menu.classList.toggle("active");
+      });
+    });
+  </script>
 </header>
-
