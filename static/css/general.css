@@ -20,7 +20,7 @@ main {
     flex: 1;
 }
 
-/* Navbar Styles (your existing code) */
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -34,6 +34,7 @@ main {
     height: 50px;
 }
 
+/* Desktop menu - always visible */
 .menu {
     display: flex;
     list-style: none;
@@ -48,6 +49,7 @@ main {
     font-size: 1.1rem;
 }
 
+/* Hide hamburger and mobile menu on desktop */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -65,21 +67,25 @@ main {
     transition: 0.3s;
 }
 
+/* Hide mobile menu by default */
 .mobile-menu {
     display: none;
 }
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    /* Show hamburger */
     .hamburger {
         display: flex;
         z-index: 1000;
     }
 
+    /* Hide desktop menu */
     .menu {
         display: none;
     }
 
+    /* Show and style mobile menu */
     .mobile-menu {
         display: flex;
         position: fixed;
@@ -112,6 +118,7 @@ main {
         text-align: center;
     }
 
+    /* Hamburger animation */
     .hamburger.active .bar:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
@@ -127,25 +134,46 @@ main {
 
 /* Footer Styles */
 .footer {
-    background: #1e40af; /* Nice blue color */
+    background: #1e293b; /* Dark blue color - change as needed */
     color: white;
     text-align: center;
-    padding: 1.5rem 1rem;
+    padding: 2rem 1rem;
+    margin-top: auto; /* Pushes footer to bottom when using flexbox */
     width: 100%;
-    margin-top: auto; /* This pushes it to the bottom */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer p {
-    margin: 0;
+    margin: 0.5rem 0;
     font-size: 1rem;
     line-height: 1.5;
 }
 
 .footer a {
-    color: #bfdbfe;
+    color: #60a5fa; /* Light blue for links */
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .footer a:hover {
+    color: #93c5fd; /* Lighter blue on hover */
     text-decoration: underline;
+}
+
+/* If you want a simpler version */
+.footer-simple {
+    background: #3b82f6; /* Blue color */
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    width: 100%;
+}
+
+.footer-simple p {
+    margin: 0;
+    font-size: 1rem;
 }
