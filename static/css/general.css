@@ -125,29 +125,50 @@ footer:hover {
 
 }
 
-/* Force mobile clash effect */
+/* ============================= */
+/* Mobile portrait adjustments   */
+/* ============================= */
 @media (max-width: 480px) {
-    header .navbar {
-        justify-content: flex-end;
-        padding: 5px;
+    .navbar {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 5px 10px !important;
+        background-color: blue;
+        position: relative;
         min-height: 45px;
+        overflow: visible;
     }
 
-    header .navbar .logo {
-        position: absolute;
-        left: 5px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1000;
+    .navbar .logo {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        z-index: 100;
+        flex-shrink: 0;
     }
 
-    header .navbar .desktop-nav {
-        margin-left: 70px;
-        gap: 8px;
+    .navbar .logo img {
+        max-height: 25px !important; /* Smaller logo */
+        width: auto !important;
     }
 
-    header .navbar .desktop-nav li a {
-        font-size: 11px;
-        padding: 1px 3px;
+    .navbar .menu.desktop-nav {
+        display: flex !important;
+        position: relative;
+        z-index: 90;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 5px !important; /* Smaller gap */
+        flex-wrap: nowrap;
+        margin-left: -15px !important; /* Gentle overlap */
+    }
+
+    .navbar .menu.desktop-nav li a {
+        font-size: 12px !important; /* Smaller font size */
+        padding: 3px 5px !important; /* Smaller padding */
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
     }
 }
