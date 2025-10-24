@@ -76,7 +76,10 @@ main {
   }
 
   /* Hide menu by default on mobile */
-  .navbar .menu {
+  .navbar .menu {/* Temporary debug - add this to your CSS */
+.menu {
+  border: 2px solid red !important; /* This will highlight the menu */
+}
     display: none;
     position: absolute;
     top: 100%;
@@ -103,4 +106,9 @@ main {
     padding: 12px 0;
     border-bottom: 1px solid rgba(255,255,255,0.2);
   }
+}
+
+/* Temporary debug - add this to your CSS */
+.menu {
+  border: 2px solid red !important; /* This will highlight the menu */
 }
