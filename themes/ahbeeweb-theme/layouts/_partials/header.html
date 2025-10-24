@@ -6,15 +6,13 @@
       </a>
     </div>
 
-    <!-- Hamburger button (visible on mobile only) -->
-    <button class="hamburger" aria-label="Toggle menu">
+    <button class="hamburger" aria-label="Toggle menu" id="hamburger-btn">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
 
-    <!-- Navigation Menu -->
-    <ul class="menu desktop-nav">
+    <ul class="menu desktop-nav" id="main-menu">
       <li><a href="{{ "/" | relURL }}">Home</a></li>
       <li><a href="{{ "/services/" | relURL }}">Services</a></li>
       <li><a href="{{ "/portfolio/" | relURL }}">Portfolio</a></li>
@@ -22,26 +20,39 @@
     </ul>
   </nav>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.querySelector(".hamburger");
-        const menu = document.querySelector(".menu");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.querySelector(".hamburger");
+      const menu = document.querySelector(".menu");
 
-        console.log("Script loaded - Hamburger:", hamburger);
-        console.log("Script loaded - Menu:", menu);
+      console.log("=== DEBUG INFO ===");
+      console.log("Hamburger element:", hamburger);
+      console.log("Menu element:", menu);
+      console.log("Viewport width:", window.innerWidth);
+      console.log("Is mobile?", window.innerWidth <= 768);
 
-        if (hamburger && menu) {
-          hamburger.addEventListener("click", () => {
-            console.log("Hamburger clicked!");
-            hamburger.classList.toggle("active");
-            menu.classList.toggle("active");
-            console.log("Hamburger classes:", hamburger.className);
-            console.log("Menu classes:", menu.className);
-          });
-        } else {
-          console.error("Could not find hamburger or menu elements");
-        }
+      // Add click event to document to see if clicks are registered
+      document.addEventListener('click', function(e) {
+        console.log("Click detected on:", e.target);
       });
-    </script>
 
+      if (hamburger && menu) {
+        hamburger.addEventListener("click", function(e) {
+          e.stopPropagation();
+          console.log("Hamburger clicked!");
+          console.log("Before toggle - Menu classes:", menu.className);
+          console.log("Before toggle - Hamburger classes:", hamburger.className);
+
+          hamburger.classList.toggle("active");
+          menu.classList.toggle("active");
+
+          console.log("After toggle - Menu classes:", menu.className);
+          console.log("After toggle - Hamburger classes:", hamburger.className);
+          console.log("Menu display style:", window.getComputedStyle(menu).display);
+        });
+      } else {
+        console.error("ERROR: Could not find hamburger or menu elements");
+      }
+    });
+  </script>
 </header>

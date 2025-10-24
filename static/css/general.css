@@ -1,8 +1,12 @@
-/* ===== FOOTER SECTION ===== */
-html, body {
-    height: 100%;
+/* Reset and basic styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
     width: 100%;
     overflow-x: hidden;
 }
@@ -17,95 +21,109 @@ main {
     flex: 1;
 }
 
-/* ===== NAVBAR SECTION ===== */
+/* ===== NAVBAR ===== */
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background-color: blue;
-  width: 100%;
-  box-sizing: border-box;
-  position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: blue;
+    position: relative;
 }
 
 /* Logo */
-.navbar .logo img {
-  max-height: 50px;
+.logo img {
+    height: 50px;
 }
 
-/* Desktop Menu - visible by default */
-.navbar .menu {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
+/* Desktop Menu */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
-.navbar .menu li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
-  font-size: 20px;
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
 }
 
-/* Hamburger button - hidden on desktop */
+/* Hamburger - hidden on desktop */
 .hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  background: none;
-  border: none;
-  gap: 4px;
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 4px;
 }
 
 .hamburger .bar {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-  /* Show hamburger on mobile */
-  .hamburger {
-    display: flex;
-  }
+    /* Debug: Make sure media query is working */
+    body::before {
+        content: "MOBILE VIEW - Media query is working!";
+        background: red;
+        color: white;
+        padding: 5px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+        font-size: 12px;
+    }
 
-  /* Hide menu by default on mobile */
-  .navbar .menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background-color: blue;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  }
+    .hamburger {
+        display: flex;
+    }
 
-  /* Show menu when active */
-  .navbar .menu.active {
-    display: flex;
-  }
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: darkblue;
+        flex-direction: column;
+        padding: 20px;
+        border: 3px solid limegreen !important; /* Debug border */
+    }
 
-  .navbar .menu li {
-    width: 100%;
-    text-align: center;
-  }
+    .menu.active {
+        display: flex !important;
+    }
 
-  .navbar .menu li a {
-    display: block;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-  }
-}
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
 
-/* Temporary debug - add this to your CSS */
-.menu {
-  border: 2px solid red !important; /* This will highlight the menu */
+    .menu li a {
+        display: block;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+
+    /* Hamburger animation */
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
 }
