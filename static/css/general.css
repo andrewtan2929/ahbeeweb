@@ -29,6 +29,8 @@ main {
   background-color: blue;
   width: 100%;
   box-sizing: border-box;
+  position: relative; /* ✅ added: ensures absolute-positioned dropdown attaches to navbar */
+  z-index: 1000; /* keep navbar on top of page content */
 }
 
 /* Logo */
@@ -94,28 +96,33 @@ main {
     display: flex;
   }
 
-.navbar .menu {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: blue;
-  padding: 10px 20px;
-  display: none; /* hidden by default */
-  z-index: 999; /* ensure visible on top */
-}
+  /* ✅ fixed mobile dropdown styling */
+  .navbar .menu {
+    position: absolute;
+    top: 100%; /* ✅ sits directly below the navbar */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: blue;
+    padding: 10px 20px;
+    display: none; /* hidden by default */
+    z-index: 9999;
+  }
 
-.navbar .menu.active {
-  display: flex; /* show when active */
-}
+  .navbar .menu.active {
+    display: flex; /* show when active */
+  }
 
+  .navbar .menu li {
+    width: 100%; /* full width for mobile links */
+  }
 
   .navbar .menu li a {
     font-size: 16px;
     padding: 8px 0;
     width: 100%;
+    display: block;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
