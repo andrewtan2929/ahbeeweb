@@ -27,11 +27,19 @@
         const hamburger = document.querySelector(".hamburger");
         const menu = document.querySelector(".menu");
 
+        console.log("Script loaded - Hamburger:", hamburger);
+        console.log("Script loaded - Menu:", menu);
+
         if (hamburger && menu) {
           hamburger.addEventListener("click", () => {
+            console.log("Hamburger clicked!");
             hamburger.classList.toggle("active");
             menu.classList.toggle("active");
+            console.log("Hamburger classes:", hamburger.className);
+            console.log("Menu classes:", menu.className);
           });
+        } else {
+          console.error("Could not find hamburger or menu elements");
         }
       });
     </script>

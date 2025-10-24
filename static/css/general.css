@@ -1,5 +1,4 @@
 /* ===== FOOTER SECTION ===== */
-/* Ensure html and body take full height */
 html, body {
     height: 100%;
     margin: 0;
@@ -8,14 +7,12 @@ html, body {
     overflow-x: hidden;
 }
 
-/* Use flexbox to push footer to bottom */
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* Main content grows to push footer down */
 main {
     flex: 1;
 }
@@ -30,16 +27,14 @@ main {
   width: 100%;
   box-sizing: border-box;
   position: relative;
-  z-index: 1000;
 }
 
 /* Logo */
 .navbar .logo img {
   max-height: 50px;
-  transition: all 0.3s ease;
 }
 
-/* Desktop Menu - ALWAYS VISIBLE on desktop */
+/* Desktop Menu - visible by default */
 .navbar .menu {
   list-style: none;
   display: flex;
@@ -53,14 +48,12 @@ main {
   color: #fff;
   font-weight: 500;
   font-size: 20px;
-  transition: all 0.3s ease;
 }
 
-/* Hamburger button - HIDDEN by default */
+/* Hamburger button - hidden on desktop */
 .hamburger {
   display: none;
   flex-direction: column;
-  justify-content: center;
   cursor: pointer;
   background: none;
   border: none;
@@ -75,27 +68,14 @@ main {
   transition: all 0.3s ease;
 }
 
-/* Hamburger active (turn into X) */
-.hamburger.active .bar:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
-}
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
-}
-
-/* ============================= */
-/* Mobile Responsive Styles      */
-/* ============================= */
+/* Mobile Styles */
 @media (max-width: 768px) {
   /* Show hamburger on mobile */
   .hamburger {
     display: flex;
   }
 
-  /* Hide desktop menu by default on mobile */
+  /* Hide menu by default on mobile */
   .navbar .menu {
     display: none;
     position: absolute;
@@ -103,42 +83,24 @@ main {
     left: 0;
     width: 100%;
     flex-direction: column;
-    align-items: flex-start;
     background-color: blue;
-    padding: 10px 20px;
-    z-index: 9999;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
 
-  /* Show menu when active class is added */
+  /* Show menu when active */
   .navbar .menu.active {
     display: flex;
   }
 
   .navbar .menu li {
     width: 100%;
+    text-align: center;
   }
 
   .navbar .menu li a {
-    font-size: 16px;
-    padding: 8px 0;
-    width: 100%;
     display: block;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .navbar .logo img {
-    max-height: 35px;
-  }
-}
-
-/* Extra small devices */
-@media (max-width: 480px) {
-  .navbar .logo img {
-    max-height: 25px;
-  }
-
-  .navbar .menu li a {
-    font-size: 14px;
-    padding: 6px 0;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
   }
 }
