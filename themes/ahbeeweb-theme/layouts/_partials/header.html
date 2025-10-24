@@ -2,12 +2,12 @@
   <nav class="navbar">
     <div class="logo">
       <a href="{{ "/" | relURL }}">
-        <img src="{{ "images/AhbeeWeb.png" | relURL }}" alt="AhbeeWeb Logo">
+        <img src="{{ "images/AhbeeWeb.png" | relURL }}" alt="AhbeeWeb Logo" height="50">
       </a>
     </div>
 
     <!-- Hamburger -->
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <button class="hamburger" id="hamburger">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
@@ -21,13 +21,12 @@
       <li><a href="{{ "/contact/" | relURL }}">Contact</a></li>
     </ul>
 
-    <!-- Modern Mobile Menu -->
+    <!-- Mobile Menu (separate element) -->
     <div class="mobile-menu" id="mobileMenu">
-      <button class="close-menu" id="closeMenu" aria-label="Close menu">✕</button>
-      <a href="{{ "/" | relURL }}" class="menu-link">Home</a>
-      <a href="{{ "/services/" | relURL }}" class="menu-link">Services</a>
-      <a href="{{ "/portfolio/" | relURL }}" class="menu-link">Portfolio</a>
-      <a href="{{ "/contact/" | relURL }}" class="menu-link">Contact</a>
+      <a href="{{ "/" | relURL }}">Home</a>
+      <a href="{{ "/services/" | relURL }}">Services</a>
+      <a href="{{ "/portfolio/" | relURL }}">Portfolio</a>
+      <a href="{{ "/contact/" | relURL }}">Contact</a>
     </div>
   </nav>
 
@@ -35,28 +34,18 @@
     document.addEventListener('DOMContentLoaded', function() {
       const hamburger = document.getElementById('hamburger');
       const mobileMenu = document.getElementById('mobileMenu');
-      const closeMenu = document.getElementById('closeMenu');
-      const body = document.body;
 
-      function toggleMenu() {
+      hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
         mobileMenu.classList.toggle('active');
-        body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-      }
-
-      hamburger.addEventListener('click', toggleMenu);
-      closeMenu.addEventListener('click', toggleMenu);
+      });
 
       // Close menu when clicking on links
       mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', toggleMenu);
-      });
-
-      // Close menu when pressing Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-          toggleMenu();
-        }
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+        });
       });
     });
   </script>
