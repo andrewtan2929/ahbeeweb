@@ -6,7 +6,7 @@
       </a>
     </div>
 
-    <!-- Hamburger button (visible on mobile only) -->
+    <!-- Hamburger button -->
     <button class="hamburger" aria-label="Toggle menu">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -14,7 +14,7 @@
     </button>
 
     <!-- Navigation Menu -->
-    <ul class="menu desktop-nav">
+    <ul class="menu">
       <li><a href="{{ "/" | relURL }}">Home</a></li>
       <li><a href="{{ "/services/" | relURL }}">Services</a></li>
       <li><a href="{{ "/portfolio/" | relURL }}">Portfolio</a></li>
@@ -22,18 +22,15 @@
     </ul>
   </nav>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const hamburger = document.querySelector(".hamburger");
-        const menu = document.querySelector(".menu");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.querySelector(".hamburger");
+      const menu = document.querySelector(".menu");
 
-        if (hamburger && menu) {
-          hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            menu.classList.toggle("active");
-          });
-        }
+      hamburger.addEventListener("click", function () {
+        this.classList.toggle("active");
+        menu.classList.toggle("active");
       });
-    </script>
-
+    });
+  </script>
 </header>
