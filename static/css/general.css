@@ -120,25 +120,48 @@ footer:hover {
     color: white;
     text-decoration: underline;
 }
+
 /* ============================= */
 /* Mobile portrait adjustments   */
 /* ============================= */
 @media (max-width: 480px) {
     .navbar {
         justify-content: flex-end;
+        padding: 10px 15px; /* Reduced padding for more clash */
+        position: relative;
+        min-height: 60px; /* Ensure navbar has minimum height */
     }
 
     .navbar .logo {
-        position: static;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
         font-size: 1rem;
     }
 
     .navbar .logo img {
         max-height: 30px;
+        transform: scale(0.9); /* Slightly shrink logo */
+    }
+
+    .navbar .menu {
+        position: relative;
+        z-index: 5;
+        gap: 15px; /* Reduce gap between menu items */
+        margin-left: 80px; /* Push menu to overlap with logo space */
     }
 
     .navbar .menu li a {
         font-size: 14px;
+        padding: 5px 8px; /* Reduce padding to create more overlap */
+    }
+
+    /* Optional: Add some transparency to see the clash effect */
+    .navbar .menu li a {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
     }
 
     /* Mobile footer adjustments */
