@@ -86,11 +86,63 @@
     <p>Contact us today for a free consultation and custom quote tailored to your business needs.</p>
     <div class="cta-buttons">
         <a href="{{ "/contact/" | relURL }}" class="btn-large btn-primary">Get Free Quote</a>
-        <a href="tel:+61 403 872 586" class="btn-large btn-outline">Call Us Now</a>
+
+        <!-- Smart Call Button -->
+        <a href="tel:+61403872586"
+           class="btn-large btn-outline call-button"
+           id="callButton"
+           data-phone="+61403872586">
+           <span class="button-icon">📞</span>
+           Call Us Now
+        </a>
     </div>
 </section>
 
-<div class="content">
-    {{ .Content }}
+<!-- Fallback for desktop users -->
+<div class="desktop-contact-overlay" id="contactOverlay">
+    <div class="contact-options">
+        <h3>Contact Options</h3>
+        <a href="tel:+61403872586" class="contact-option">📞 Call: +61 403 872 586</a>
+        <a href="sms:+61403872586" class="contact-option">💬 Text Message</a>
+        <a href="{{ "/contact/" | relURL }}" class="contact-option">📧 Contact Form</a>
+        <button class="close-overlay">Close</button>
+    </div>
 </div>
+
+<!-- ADD THIS JAVASCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const callButton = document.getElementById('callButton');
+    const contactOverlay = document.getElementById('contactOverlay');
+
+    // Detect if device can make phone calls
+    function canMakePhoneCalls() {
+        return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+    }
+
+    if (callButton && contactOverlay) {
+        callButton.addEventListener('click', function(e) {
+            if (!canMakePhoneCalls()) {
+                e.preventDefault();
+                contactOverlay.style.display = 'flex';
+            }
+            // Mobile devices will proceed with tel: link automatically
+        });
+
+        // Close overlay when clicking X or background
+        contactOverlay.addEventListener('click', function(e) {
+            if (e.target === contactOverlay || e.target.classList.contains('close-overlay')) {
+                contactOverlay.style.display = 'none';
+            }
+        });
+
+        // Close overlay with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && contactOverlay.style.display === 'flex') {
+                contactOverlay.style.display = 'none';
+            }
+        });
+    }
+});
+</script>
 {{ end }}
