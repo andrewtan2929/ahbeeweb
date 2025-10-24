@@ -25,32 +25,46 @@
     </ul>
   </nav>
 
-  <script>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
-      const hamburger = document.querySelector(".hamburger");
-      const menu = document.querySelector(".menu");
-      const debugInfo = document.querySelector("#debugInfo");
+        const hamburger = document.querySelector(".hamburger");
+        const menu = document.querySelector(".menu");
+        const debugInfo = document.querySelector("#debugInfo");
+        const body = document.body;
 
-      // Update debug info
-      function updateDebugInfo() {
-        if (debugInfo) {
-          const isOpen = menu.classList.contains("active");
-          debugInfo.textContent = `Mobile View - Menu is ${isOpen ? 'OPEN' : 'CLOSED'}`;
-          debugInfo.style.background = isOpen ? 'green' : 'red';
+        function updateDebugInfo() {
+            if (debugInfo) {
+                const isOpen = menu.classList.contains("active");
+                debugInfo.textContent = `Mobile View - Menu is ${isOpen ? 'OPEN' : 'CLOSED'}`;
+                debugInfo.style.background = isOpen ? 'green' : 'red';
+
+                // Prevent body scrolling when menu is open
+                if (isOpen) {
+                    body.classList.add('menu-open');
+                } else {
+                    body.classList.remove('menu-open');
+                }
+            }
         }
-      }
 
-      if (hamburger && menu) {
-        hamburger.addEventListener("click", function() {
-          console.log("Hamburger clicked on mobile!");
-          hamburger.classList.toggle("active");
-          menu.classList.toggle("active");
-          updateDebugInfo();
-        });
+        if (hamburger && menu) {
+            hamburger.addEventListener("click", function() {
+                hamburger.classList.toggle("active");
+                menu.classList.toggle("active");
+                updateDebugInfo();
+            });
 
-        // Initial update
-        updateDebugInfo();
-      }
+            // Close menu when clicking on links
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove("active");
+                    menu.classList.remove("active");
+                    updateDebugInfo();
+                });
+            });
+
+            updateDebugInfo();
+        }
     });
-  </script>
+</script>
 </header>
