@@ -59,6 +59,7 @@ main {
     border: none;
     cursor: pointer;
     gap: 4px;
+    padding: 10px;
 }
 
 .hamburger .bar {
@@ -68,23 +69,32 @@ main {
     transition: 0.3s;
 }
 
+/* ===== MOBILE DEBUGGING ===== */
+/* Always show debug info on mobile */
+.debug-mobile {
+    display: none;
+    background: red;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
-    /* Debug: Make sure media query is working */
-    body::before {
-        content: "MOBILE VIEW - Media query is working!";
-        background: red;
-        color: white;
-        padding: 5px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 10000;
-        font-size: 12px;
+    .debug-mobile {
+        display: block;
     }
 
     .hamburger {
         display: flex;
+        background: rgba(255,255,255,0.2); /* Make button more visible */
+        border-radius: 4px;
     }
 
     .menu {
@@ -96,11 +106,13 @@ main {
         background-color: darkblue;
         flex-direction: column;
         padding: 20px;
-        border: 3px solid limegreen !important; /* Debug border */
+        border: 3px solid red !important; /* Red border when hidden */
     }
 
     .menu.active {
         display: flex !important;
+        border: 3px solid limegreen !important; /* Green border when active */
+        background-color: green; /* Change color when open */
     }
 
     .menu li {
@@ -112,6 +124,7 @@ main {
         display: block;
         padding: 15px 0;
         border-bottom: 1px solid rgba(255,255,255,0.3);
+        font-size: 18px;
     }
 
     /* Hamburger animation */
@@ -125,5 +138,9 @@ main {
 
     .hamburger.active .bar:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .hamburger.active {
+        background: green; /* Change button color when active */
     }
 }
