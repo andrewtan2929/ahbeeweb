@@ -4,18 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Global CSS -->
+    <!-- TITLE -->
+    <title>
+        {{ if .IsHome }}
+            {{ .Site.Title }} - {{ .Site.Params.tagline }}
+        {{ else }}
+            {{ .Title }} | {{ .Site.Title }}
+        {{ end }}
+    </title>
+
+    <!-- META DESCRIPTION -->
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+    <!-- KEYWORDS -->
+    <meta name="keywords" content="{{ with .Params.Keywords }}{{ . }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
+
+    <!-- CANONICAL URL -->
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    <!-- OPEN GRAPH / SOCIAL META -->
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+    <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+    <!-- YOUR EXISTING STYLES & FAVICON -->
     <link rel="stylesheet" href="{{ "css/general.css" | relURL }}">
     <link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | relURL }}">
 
     <!-- Page-specific CSS handled by partial -->
     {{ partial "head/css.html" . }}
 
-    <title>{{ .Title }}</title>
-
     <!-- Optional JS -->
     <script src="{{ "js/portfolio.js" | relURL }}"></script>
 
+    {{ block "head" . }}{{ end }}
 </head>
 <body>
 
@@ -25,8 +54,11 @@
         {{ block "main" . }}{{ end }}
     </main>
 
+    {{ partial "structured-data" . }}
+
     {{ partial "footer.html" . }}
 
+    <!-- YOUR EXISTING HAMBURGER MENU SCRIPT -->
     <script>
     document.addEventListener("DOMContentLoaded", function() {
       const hamburger = document.querySelector(".hamburger");
@@ -39,7 +71,6 @@
         });
       }
     });
-
     </script>
 
 </body>

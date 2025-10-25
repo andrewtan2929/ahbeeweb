@@ -1,0 +1,26 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Include home page -->
+  <url>
+    <loc>{{ .Site.BaseURL }}</loc>
+    <lastmod>{{ now.Format "2006-01-02" }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Include other pages -->
+  {{ range where .Site.Pages "Kind" "page" }}
+    {{ if and (ne .Type "categories") (ne .Type "tags") }}
+    <url>
+      <loc>{{ .Permalink }}</loc>
+      {{ if not .Lastmod.IsZero }}
+      <lastmod>{{ .Lastmod.Format "2006-01-02" }}</lastmod>
+      {{ end }}
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    {{ end }}
+  {{ end }}
+</urlset>

@@ -1,6 +1,23 @@
-baseURL = "https://ahbeeweb.netlify.app/"
+baseURL = "https://ahbeeweb.netlify.app"
 languageCode = "en-us"
-title = "AhbeeWeb"
+title = "AhbeeWeb - Professional Web Development for Small Businesses"
 theme = "ahbeeweb-theme"
-enableRobotsTXT = true
 
+# SEO CRITICAL SETTINGS
+enableRobotsTXT = true
+metaDataFormat = "yaml"
+enableGitInfo = false
+
+[params]
+  description = "Affordable, fast & mobile-friendly websites for small businesses. Get a professional online presence without the corporate price tag."
+  keywords = "web development, small business website, affordable website, web design, Hugo website"
+
+# SITEMAP CONFIGURATION
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# SEO FRIENDLY URLs
+[permalinks]
+  post = "/:year/:month/:title/"

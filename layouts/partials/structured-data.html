@@ -1,0 +1,30 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "AhbeeWeb",
+  "description": "{{ .Site.Params.description }}",
+  "url": "{{ .Site.BaseURL }}",
+  "telephone": "+61403872586",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "AU"
+  },
+  "serviceType": "Web Development",
+  "areaServed": "Australia",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Web Development Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Small Business Website",
+          "description": "Affordable website development for small businesses"
+        }
+      }
+    ]
+  }
+}
+</script>
