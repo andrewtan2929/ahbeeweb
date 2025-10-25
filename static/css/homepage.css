@@ -423,3 +423,86 @@
         font-size: 2rem;
     }
 }
+
+/* Project Highlights Section */
+.highlights-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.highlights-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem auto; /* Centers the container */
+    max-width: 1200px; /* Limits the maximum width */
+    padding: 0 20px; /* Adds internal padding */
+}
+
+.highlight-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.highlight-badge {
+    background: #007acc;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.highlight-content h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.highlight-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007acc;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.highlight-link {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.highlights-cta {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #dee2e6;
+}
+
+.highlights-cta p {
+    margin-bottom: 1.5rem; /* Adds space below the paragraph */
+}
