@@ -1,7 +1,7 @@
 baseURL = "https://ahbeeweb.netlify.app"
 languageCode = "en-us"
 title = "AhbeeWeb - Professional Web Development for Small Businesses"
-theme = "ahbeeweb-theme"
+# theme = "ahbeeweb-theme"  # REMOVE OR COMMENT OUT THIS LINE
 
 # SEO CRITICAL SETTINGS
 enableRobotsTXT = true
