@@ -459,3 +459,44 @@
         text-align: center;
     }
 }
+
+/* Trust Signals Styles */
+.trust-signals {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.trust-signals p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2d3748;
+    line-height: 1.5;
+}
+
+.trust-signals strong {
+    color: #2b6cb0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .trust-signals {
+        margin: 1.5rem 1rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .trust-signals p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-signals p {
+        font-size: 0.9rem;
+    }
+}
