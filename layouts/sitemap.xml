@@ -1,26 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- Home page -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>{{ .Site.BaseURL }}</loc>
     <lastmod>{{ now.Format "2006-01-02" }}</lastmod>
-    <priority>1.0</priority>
   </url>
-
-  <!-- All regular pages -->
   {{ range .Site.RegularPages }}
   <url>
     <loc>{{ .Permalink }}</loc>
     <lastmod>
-      {{- if .Lastmod -}}
-        {{ .Lastmod.Format "2006-01-02" }}
-      {{- else -}}
+      {{- if .Lastmod.IsZero -}}
         {{ .Date.Format "2006-01-02" }}
+      {{- else -}}
+        {{ .Lastmod.Format "2006-01-02" }}
       {{- end -}}
     </lastmod>
-    <priority>0.8</priority>
   </url>
   {{ end }}
 </urlset>
