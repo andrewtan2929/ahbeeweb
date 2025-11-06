@@ -5,13 +5,29 @@
 [build.environment]
   HUGO_VERSION = "0.149.1"
 
-[[headers]]
-  for = "/sitemap.xml"
-  [headers.values]
-    Content-Type = "application/xml"
-    Cache-Control = "max-age=3600"
+# Redirects for clean URLs
+[[redirects]]
+  from = "/services/"
+  to = "/services"
+  status = 301
 
-[[headers]]
-  for = "/*.xml"
-  [headers.values]
-    Content-Type = "application/xml"
+[[redirects]]
+  from = "/portfolio/"
+  to = "/portfolio"
+  status = 301
+
+[[redirects]]
+  from = "/contact/"
+  to = "/contact"
+  status = 301
+
+# Netlify Forms configuration
+[context.production.environment]
+  HUGO_ENV = "production"
+
+# Optional: Branch deploy settings
+[context.deploy-preview]
+  command = "hugo -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy]
+  command = "hugo -b $DEPLOY_PRIME_URL"
