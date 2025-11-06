@@ -1,9 +1,9 @@
 [build]
   publish = "public"
-  command = "hugo --gc --minify"
+  command = "hugo --gc --minify --verbose"
 
 [build.environment]
-  HUGO_VERSION = "0.120.4"
+  HUGO_VERSION = "0.149.1"
 
 [[headers]]
   for = "/sitemap.xml"
