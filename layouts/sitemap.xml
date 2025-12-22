@@ -1,15 +1,12 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-{{ range where .Site.Pages "Kind" "ne" "taxonomy" }}
-{{ if and (ne .Kind "taxonomy") (ne .Kind "term") }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{{ range where .Site.Pages "Kind" "not in" (slice "taxonomy" "term") }}
 <url>
   <loc>{{ .Permalink }}</loc>
   {{ if not .Lastmod.IsZero }}
   <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}</lastmod>
   {{ end }}
-  <changefreq>weekly</changefreq>
-  <priority>0.5</priority>
+  <changefreq>{{ .Params.sitemap.changefreq }}</changefreq>
+  <priority>{{ .Params.sitemap.priority }}</priority>
 </url>
-{{ end }}
 {{ end }}
 </urlset>
